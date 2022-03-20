@@ -1,5 +1,149 @@
 'use strict';
 
+//////////////
+/////////////
+//BITNO CODING CHALLANGE 2
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  const plava = document
+    .querySelector('body')
+    .addEventListener('click', function () {
+      (header.style.color = 'blue'),
+        (document.body.style.background = 'yellow');
+    });
+})();
+
+/*
+//Example 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+console.dir(f);
+
+//Re-assigning f function
+h();
+f();
+console.dir(f);
+
+//Example 2
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+//const perGroup = 1000;
+boardPassengers(180, 3);
+
+
+
+
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+///////////
+//////////
+//LEKCIJA
+const runOnce = function () {
+  console.log('This will never run agein!');
+};
+runOnce();
+//IIFE - imidietly invoke function expresion
+(function () {
+  console.log('This will never run again!');
+})();
+
+//arrow IIFE
+(() => console.log('This will ALSO never run again!'))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+//console.log(isPrivate);
+console.log(notPrivate);
+
+///////////
+//////////
+//BITNO CHALLANGE NUMBER 1
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Pyton', '2: Rust', '3: C++'],
+
+  answers: new Array(4).fill(0),
+
+  registerNewAnswer() {
+    //Get answer
+    const answer = Number(
+      prompt(
+        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+      )
+    );
+    console.log(answer);
+
+    // REgister answer
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+
+    this.displayResults();
+    this.displayResults('string');
+  },
+
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  },
+};
+
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [2, 3, 4] }, 'string');
+poll.displayResults.call({ answers: [3, 4, 5, 5, 6, 7, 1, 2, 3, 4, 5] });
+
 /////////////////
 ////////////////
 //BITNO Lekcija BROJ 5  CALL and APPLY OPCIJE, and BIND METOD
@@ -94,7 +238,6 @@ const addVAT1 = addTAX1(0.23);
 console.log(addVAT1(100));
 console.log(addVAT1(23));
 
-/*
 ///////////////
 //////////////
 //BITNO LEKCIJA 4
